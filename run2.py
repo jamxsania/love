@@ -115,7 +115,7 @@ class dump_grup:
                        'name': i.text})
 
         if len(self.glist) != 0:
-            print '-' * 30
+            print ('-') * 30
             print ('* you have %s groups found.' % len(self.glist)')
             print ('* select aselecton:\n')
             print ('  1. get grup by searching the name')
@@ -156,7 +156,7 @@ class dump_grup:
         if q == '':
             self.search()
         else:
-            print '-' * 30
+            print ('-') * 30
             for e, i in enumerate(self.glist):
                 if q in i.get('name').lower():
                     whitelist.append(i)
