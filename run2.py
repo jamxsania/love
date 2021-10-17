@@ -116,7 +116,7 @@ class dump_grup:
 
         if len(self.glist) != 0:
             print ('-') * 30
-            print ('* you have %s groups found.' % len(self.glist)')
+            print ('* you have %s groups found.') % len(self.glist)
             print ('* select aselecton:\n')
             print ('  1. get grup by searching the name')
             print ('  2. input group id (manual)\n')
@@ -147,7 +147,7 @@ class dump_grup:
             else:
                 self.listed = {'id': id, 'name': r.find('title').text}
                 self.f()
-                print '* target: %s..' % self.listed.get('name')[0:20]
+                print ('* target: %s..') % self.listed.get('name')[0:20]
                 self.dumps('https://m.facebook.com/groups/' + id)
 
     def search(self):
@@ -175,7 +175,7 @@ class dump_grup:
         try:
             self.listed = whitelist[(input('* select group: ') - 1)]
             self.f()
-            print ('* target: %s' % self.listed.get('name')')
+            print ('* target: %s') % self.listed.get('name')
             self.dumps('https://m.facebook.com/groups/' + self.listed.get('id'))
         except Exception as e:
             print ('* %s') % e
