@@ -5,7 +5,7 @@ import requests, bs4, sys, os, subprocess, sys, random
 from multiprocessing.pool import ThreadPool
 import subprocess, logging
 
-sys.setdefaultencoding('utf-8')
+#sys.setdefaultencoding('utf-8')
 
 def clear():
     if ' linux' in sys.platform.lower():
