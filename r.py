@@ -514,7 +514,7 @@ def dumpfl():
         except:
             pass
 
-        print '* login fail!'
+        print ('* login fail!')
         dumpfl()
     return
 
@@ -572,8 +572,8 @@ class lc:
                 else:
                     open('.browser', 'w').write(r.json()['result']['browser'])
                 if r.json()['result']['vip'] == 'true':
-                    print ('  + days used: %s' % r.json()['tinggal']
-                    print ('  + VIP: %syes%s' % (G, N)
+                    print ('  + days used: %s') % r.json()['tinggal']
+                    print ('  + VIP: %syes%s') % (G, N)
                 else:
                     print ('  + days used: %s') % r.json()['tinggal']
                     print ('  + VIP: %sno%s') % (R, N)
