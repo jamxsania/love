@@ -591,7 +591,7 @@ else:
 basecookie()
 clear()
 while True:
-    print banner()
+    banner()
     print ('\x1b[0;39m')
     print ('  [1] Dump id By Search Name')
     print ('  [2] Dump id by Public Friendlist')
