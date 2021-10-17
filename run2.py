@@ -70,7 +70,7 @@ def lang(cookies):
 
 def gen(show=True):
     if show == True:
-        print 'banner()
+        banner()
         print '* put your cookie'
     ck = raw_input('?: cookie: ')
     if ck == '':
