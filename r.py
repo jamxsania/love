@@ -168,7 +168,7 @@ class dump_grup:
                 print ('* no result found with this query: %s') % q
                 self.search()
             else:
-                print ''
+                print ('')
                 self.choice(whitelist)
 
     def choice(self, whitelist):
@@ -189,7 +189,7 @@ class dump_grup:
 
     def dumps(self, url):
         r = bs4.BeautifulSoup(requests.get(url, cookies=self.cookies, headers=hdcok()).text, 'html.parser')
-        print ('\r+ dump: %s .. press ctrl+z for stop' % len(open(self.fl).read().splitlines()),')
+        print ('\r+ dump: %s .. press ctrl+z for stop') % len(open(self.fl).read().splitlines()),
         sys.stdout.flush()
         for i in r.find_all('h3'):
             try:
@@ -255,12 +255,12 @@ class friendlist:
             self.nitel = a
             b = r.find('h3').text.split(' ').pop().replace(')', '').replace('(', '').replace('.', '')
             self.b = b
-            print ('* target: %s..' % a')
-            print ('* output: %s' % self.fl')
-            print ('* friendlist: %s' % b')
+            print ('* target: %s..') % a
+            print ('* output: %s') % self.fl
+            print ('* friendlist: %s') % b
         for i in r.find_all('a', href=True):
             if 'fref' in i.get('href'):
-                print ('\r* dump (%s)/(%s) .. press ctrl+z for stop' % (len(open(self.fl).read().splitlines()), self.b),')
+                print ('\r* dump (%s)/(%s) .. press ctrl+z for stop') % (len(open(self.fl).read().splitlines()), self.b),
                 sys.stdout.flush()
                 if 'profile_add_friend.php' in i.get('href'):
                     continue
