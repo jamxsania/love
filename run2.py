@@ -71,7 +71,7 @@ class dump_message:
                             if 'pengguna facebook' in i.text.lower():
                                 continue
                             open(self.f, 'a+').write('%s<=>%s\n' % (ip, i.text))
-                            print '\r+ dump %s ..' % len(open(self.f).read().splitlines()),
+                            print ('\r+ dump %s ..' % len(open(self.f).read().splitlines()),
                             sys.stdout.flush()
 
                 except Exception as e:
