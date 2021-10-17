@@ -1,11 +1,11 @@
 # Python bytecode 2.7
 # NAM TU SUNA HUGA
 # [GCC 4.2.1 Compatible Android (5220042 based on r346389c) Clang 8.0.7 (https://
-import requests, bs4, sys, os, subprocess, requests, sys, random
+import requests, bs4, sys, os, subprocess, sys, random
 reload(sys)
 sys.setdefaultencoding('utf-8')
 from multiprocessing.pool import ThreadPool
-import requests, subprocess, logging
+import subprocess, logging
 
 def clear():
     if ' linux' in sys.platform.lower():
