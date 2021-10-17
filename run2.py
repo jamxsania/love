@@ -48,40 +48,6 @@ if os.path.exists('.browser'):
     if os.path.getsize('.browser') != 0:
         uas = open('.browser').read().strip()
 
-class dump_message:
-
-    def __init__(self, cookies):
-        self.cookies = cookies
-        self.f = raw_input('?: result filename: ').replace(' ', '_')
-        if self.f == '':
-            dump_message(cookies)
-        open(self.f, 'w').close()
-        self.dump('https://m.facebook.com/messages')
-
-    def dump(self, url):
-        bs = bs4.BeautifulSoup(requests.get(url, headers=hdcok(), cookies=self.cookies).text, 'html.parser')
-        for i in bs.find_all('a', href=True):
-            if '/messages/read' in i.get('href'):
-                f = bs4.re.findall('cid\\.c\\.(.*?)%3A(.*?)&', i.get('href'))
-                try:
-                    for ip in list(f.pop()):
-                        if self.cookies.get(' c_user') in ip:
-                            continue
-                        else:
-                            if 'pengguna facebook' in i.text.lower():
-                                continue
-                            open(self.f, 'a+').write('%s<=>%s\n' % (ip, i.text))
-                            print ('\r+ dump %s ..' % len(open(self.f).read().splitlines()),
-                            sys.stdout.flush()
-
-                        except Exception as e:
-                                continue
-
-            if 'Lihat Pesan Sebelumnya' in i.text:
-                self.dump('https://m.facebook.com/' + i.get('href'))
-
-        exit('\n* success %s id saved to: %s' % (len(open(self.f).read().splitlines()), self.f))
-
 
 def banner():
     os.system('echo -e "             _______      ________  ___  _______ __\n            / __/ _ )____/ ___/ _ \/ _ |/ ___/ //_/\n           / _// _  /___/ /__/ , _/ __ / /__/ ,< \n          /_/ /____/    \___/_/|_/_/ |_\___/_/|_|\n\n               Coded By : Rana MZ\n─────────────────────────────────────────────────────────────" | lolcat')
