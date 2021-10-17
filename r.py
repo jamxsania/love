@@ -492,7 +492,7 @@ def dumpfl():
             cvds = cvd(cookie)
             new = True
         except:
-            print '* invalid cookie'
+            print ('* invalid cookie')
             dumpfl()
 
     else:
