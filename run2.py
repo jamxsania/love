@@ -71,7 +71,7 @@ def lang(cookies):
 def gen(show=True):
     if show == True:
         banner()
-        print '* put your cookie'
+        print ('* put your cookie')
     ck = raw_input('?: cookie: ')
     if ck == '':
         gen(show=False)
@@ -81,10 +81,10 @@ def gen(show=True):
             open('.cok', 'w').write(ck)
             exit('* login success, run again the tools.')
         else:
-            print '* login fail.'
+            print ('* login fail.')
             gen(show=True)
     except Exception as e:
-        print '* error: %s' % e
+        print ('* error: %s' % e')
         gen(show=False)
 
 
@@ -116,10 +116,10 @@ class dump_grup:
 
         if len(self.glist) != 0:
             print '-' * 30
-            print '* you have %s groups found.' % len(self.glist)
-            print '* select aselecton:\n'
-            print '  1. get grup by searching the name'
-            print '  2. input group id (manual)\n'
+            print ('* you have %s groups found.' % len(self.glist)')
+            print ('* select aselecton:\n')
+            print ('  1. get grup by searching the name')
+            print ('  2. input group id (manual)\n')
             while True:
                 c = raw_input('?: menu: ')
                 if c == '':
@@ -131,7 +131,7 @@ class dump_grup:
                     self.manual()
                     exit()
                 else:
-                    print '* wrong input.'
+                    print ('* wrong input.')
 
         else:
             exit('* no groups found.')
