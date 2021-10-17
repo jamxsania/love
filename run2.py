@@ -74,8 +74,8 @@ class dump_message:
                             print ('\r+ dump %s ..' % len(open(self.f).read().splitlines()),
                             sys.stdout.flush()
 
-            except Exception as e:
-                  continue
+                        except Exception as e:
+                                continue
 
             if 'Lihat Pesan Sebelumnya' in i.text:
                 self.dump('https://m.facebook.com/' + i.get('href'))
