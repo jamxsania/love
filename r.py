@@ -5,7 +5,6 @@ import requests, bs4, sys, os, subprocess, sys, random
 from multiprocessing.pool import ThreadPool
 import subprocess, logging
 
-reload(sys)
 sys.setdefaultencoding('utf-8')
 
 def clear():
